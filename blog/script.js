@@ -13,6 +13,14 @@ $( document ).ready(function() {
     
     $menu.html(MC);
     $contenido.html(MI);
+    
+    $('.owl-carousel').owlCarousel({
+        loop: true,
+        items: 1,
+        autoplay: true,
+        autoplayTimeout: 5000,
+        autoplaySpeed: 1500
+    });
 
     $(document).on('click', 'a[href^="#"]', function (event) {
         event.preventDefault();
@@ -27,10 +35,12 @@ $( document ).ready(function() {
 function getImages(item, id){
     var R = "";
     
-    R += "<div class='proyecto' id='"+getId(id)+"'>";
+    R += "<div class='proyecto owl-carousel owl-theme' id='"+getId(id)+"'>";
     for(var j = 0; j < item.imagenes.length; j++){
         var imagen = item.imagenes[ j ];
+        R += "<div>";
         R += "<img src='blog/imagenes/"+imagen+"' />";
+        R += "</div>";
     }
     R += "</div>";
     
